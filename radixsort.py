@@ -1,5 +1,5 @@
 class RadixSort:
-    def __inti__(self):
+    def __init__(self):
         self.dataset=[]
     def __prefix_sum(self,arr): # optimization done!
         for i in range(len(arr)):
@@ -18,9 +18,6 @@ class RadixSort:
         return res
     def sort(self,arr):
         for nth_digit in range(len(str(max(arr)))):
-
-
-
 
 if __name__ == "__main__":
     arr=list(map(int,input('Enter data : ').strip().split()))

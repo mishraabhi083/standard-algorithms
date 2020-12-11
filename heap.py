@@ -10,14 +10,15 @@ class Heap:
                  self.data[index] ,self.data[math.floor((index-1)//2)]=self.data[math.floor((index-1)//2)] , self.data[index]
             index=math.floor((index-1)//2)
     def heapify(self,index):
-        print(index,"index for heapify ")
-        if index >= len(self.data):return
-        if self.data[index] < self.data[(index*2)+1]:
-            self.data[index] , self.data[(index*2)+1] = self.data[(index*2)+1],self.data[index] 
-            self.heapify((index*2)+1)
-        elif self.data[index] < self.data[(index*2)+2]:
-            self.data[index] , self.data[(index*2)+2]=self.data[(index*2)+2],self.data[index]
-            self.heapify((index*2)+2)
+        if index < len(self.data):
+            if (index*2)+1 < len(self.data):
+                if self.data[index] > self.data[(index*2)+1]:
+                    self.data[index] , self.data[(index*2)+1] = self.data[(index*2)+1],self.data[index] 
+                    self.heapify((index*2)+1)
+            if (index*2)+2 < len(self.data):
+                if self.data[index] > self.data[(index*2)+2]:
+                    self.data[index] , self.data[(index*2)+2] = self.data[(index*2)+2],self.data[index] 
+                    self.heapify((index*2)+2)
 
     def displayData(self):
         print(self.data)
