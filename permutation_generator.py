@@ -1,10 +1,16 @@
-def customPermutationGenerator(nums):
-    if nums!=[]:
-        for i in range(1,len(nums)):
-            if nums[0]!=nums[i]:
-                nums[0],nums[i]=nums[i],nums[0]
-            else:continue
+# References :
+# https://www.geeksforgeeks.org/python-ways-to-find-all-permutation-of-a-string/
+# https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+def recursive_permutation_generator(s):
+    if len(s)==1:return s
+    else:
+        for i in range(len(s)):
+            s[0],s[i]=s[i],s[0]
+            print("".join(s))
+            recursive_permutation_generator(s[1:])
+            s[0],s[i]=s[i],s[0]
+            
 if __name__ == "__main__":
-    data=[1,0,1,0,2,3,4,5]
-    for i in customPermutationGenerator(data):
-        print(i)
+    recursive_permutation_generator(list(
+        "ABC"
+    ))
